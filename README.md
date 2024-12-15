@@ -1,7 +1,7 @@
 # Open-Source QR Code Generator
 
 ## Description
-This project is an open-source QR Code generator designed to offer a free and privacy-respecting alternative to paid QR code generators available online. All operations are executed directly in the browser, ensuring that no entered data leaves the user's device. The project is released under the **GPLv3** license. This project was developed with the assistance of artificial intelligence.
+This project is an open-source QR Code generator designed to provide a free and privacy-respecting alternative to paid QR Code generators. All operations are executed directly in the browser, ensuring that the data entered never leaves the user's device. The project is released under the **GPLv3** license. This project was developed with the help of artificial intelligence (AI), which significantly accelerated its development.
 
 ## Features
 - **Generate QR Codes for various data types**:
@@ -19,7 +19,7 @@ This project is an open-source QR Code generator designed to offer a free and pr
 ## Installation
 1. Clone this GitLab repository:
    ```bash
-   git clone https://git.freewebworld.fr/Fog/generateur-qrcode-en-ligne
+   git clone git@github.com:MrFogHunter/Qrcode-generator-online.git
    ```
 2. Ensure the following files are present:
    - `index.html`: Main page of the project.
@@ -46,7 +46,7 @@ Contributions are welcome! To contribute:
 3. Submit a merge request with your updates.
 
 ## Contact
-Find this project on GitLab: [GitLab Repository](https://git.freewebworld.fr/Fog/generateur-qrcode-en-ligne).
+Find this project on GitHub: [GitHub Repository](https://github.com/MrFogHunter/Qrcode-generator-online).
 
 For any questions or suggestions, feel free to open an issue in the repository.
 
