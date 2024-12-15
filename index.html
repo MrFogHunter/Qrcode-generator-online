@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Generateur de Qrcode</h1>
+        <br>
+        <h3>open-source desciption</h3>
+        <p class="description-text">
+            Ce générateur a été conçu pour offrir une alternative gratuite aux solutions payantes. Toutes les opérations s'exécutent directement dans votre navigateur, côté client, garantissant qu'aucune donnée ou image saisie n'est envoyée vers notre serveur. Ainsi, votre confidentialité est totalement respectée.
+        </p>
+        <!-- Formulaire principal -->
+        <form id="qr-form">
+            <!-- Sélection du type de QR Code -->
+            <label for="qr-type">Select QR Code Type:</label>
+            <select id="qr-type">
+                <option value="url">URL</option>
+                <option value="wifi">WiFi Connection</option>
+                <option value="vcard">vCard (Business Card)</option>
+            </select>
+
+            <!-- Entrée URL ou Texte -->
+            <div id="url-inputs">
+                <label for="text-input">Enter URL or Text:</label>
+                <input type="url" id="text-input" placeholder="Enter text or URL here">
+            </div>
+
+            <!-- Entrée WiFi -->
+            <div id="wifi-inputs" style="display: none;">
+                <label for="wifi-ssid">WiFi SSID:</label>
+                <input type="text" id="wifi-ssid" placeholder="Enter WiFi SSID">
+                <br>
+                <label for="wifi-password">WiFi Password:</label>
+                <input type="password" id="wifi-password" placeholder="Enter WiFi Password">
+                <br>
+                <label for="wifi-encryption">Encryption:</label>
+                <select id="wifi-encryption">
+                    <option value="WPA">WPA/WPA2</option>
+                    <option value="WPA3">WPA3</option>
+                    <option value="WEP">WEP</option>
+                    <option value="">None</option>
+                </select>
+            </div>
+
+            <!-- Entrée vCard -->
+            <div id="vcard-inputs" style="display: none;">
+                <label for="vcard-name">Full Name:</label>
+                <input type="text" id="vcard-name" placeholder="Enter Full Name">
+                <br>
+                <label for="vcard-phone">Phone Number:</label>
+                <input type="tel" id="vcard-phone" placeholder="Enter Phone Number">
+                <br>
+                <label for="vcard-email">Email Address:</label>
+                <input type="email" id="vcard-email" placeholder="Enter Email Address">
+                <br>
+                <label for="vcard-company">Company:</label>
+                <input type="text" id="vcard-company" placeholder="Enter Company Name">
+                <br>
+                <label for="vcard-title">Job Title:</label>
+                <input type="text" id="vcard-title" placeholder="Enter Job Title">
+                <br>
+                <label for="vcard-address">Address:</label>
+                <input type="text" id="vcard-address" placeholder="Enter Address">
+            </div>
+
+            <!-- Téléchargement d'une image -->
+            <label for="image-upload">Upload Custom Image (optional):</label>
+            <input type="file" id="image-upload" accept="image/*">
+
+            <!-- Choix des couleurs -->
+            <label for="color-dark">QR Code Color:</label>
+            <input type="color" id="color-dark" value="#000000">
+
+            <label for="color-light">Background Color:</label>
+            <input type="color" id="color-light" value="#ffffff">
+        </form>
+
+        <!-- Résultat -->
+        <div id="qr-result">
+            <canvas id="qr-canvas"></canvas>
+            <p id="download-link"></p>
+        </div>
+        <footer style="margin-top: 20px; text-align: center; font-size: 0.8rem; color: #555;">
+            <p>&copy; 2024 Générateur de QR Code. Tous droits réservés.</p>
+            <p>Ce projet est distribué sous licence <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank" style="color: #0078d7;">GPLv3</a>.</p>
+            <a href="https://git.freewebworld.fr/Fog/generateur-qrcode-en-ligne" target="_blank" style="display: inline-block; margin-top: 10px;">
+                <img src="/img/gitlab.png" alt="GitLab" style="width: 30px; height: 30px;">
+            </a>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        // Affichage des champs dynamiques selon le type sélectionné
+        document.getElementById('qr-type').addEventListener('change', (e) => {
+            const qrType = e.target.value;
+            document.getElementById('url-inputs').style.display = qrType === 'url' ? 'block' : 'none';
+            document.getElementById('wifi-inputs').style.display = qrType === 'wifi' ? 'block' : 'none';
+            document.getElementById('vcard-inputs').style.display = qrType === 'vcard' ? 'block' : 'none';
+        });
+    </script>
+
+</body>
+</html>
